@@ -1,0 +1,89 @@
+﻿@model FitnessTracker.Models.FitnessUser
+
+@{
+    ViewBag.Title = "User Home";
+}
+
+@section scripts{
+    <script src="~/Content/angular/UserHome/userHomeController.js"></script>
+}
+
+<div ng-app="userHomeModule" ng-controller="userHomeController">
+    <h1>Fitness Tracker</h1>
+    <p class="lead">Welcome to Fitness Tracker! This is your personal homepage!</p>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="btn btn-default navbar-btn" ng-click="changeView('Fitness/CreateRoutine');">
+                            <span>Create a New Routine</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        This is where you can go to create your
+                        own fitness plan. Setup a schedule with
+                        a workout plan!
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="btn btn-default navbar-btn" ng-click="changeView('Fitness/Index');">
+                            <span>Manage Routines</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        This is where you can go to manage your current Routines.
+                        View and Edit your routines!
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="container" ng-show="model.routines.length > 0">
+                        <h3>Active Routines:</h3>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Routine Name
+                                </th>
+                                <th>
+                                    Routine Goal
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                            </tr>
+                            <tr ng-repeat="routine in model.routines">
+                                <td>
+                                    {{routine.RoutineName}}
+                                </td>
+                                <td>
+                                    {{routine.RoutineGoal}}
+                                </td>
+                                <td>
+                                    <div class="btn btn-default navbar-btn" ng-click="detailsClick(routine.RoutineID);">
+                                        <span>View Details</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table" ng-show="model.exercisesForRoutine.length > 0">
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Description</th>
+                                <th>Reps</th>
+                                <th>Sets</th>
+                            </tr>
+                            <tr ng-repeat="exercise in model.exercisesForRoutine">
+                                <td>{{exercise.ExerciseName}}</td>
+                                <td>{{exercise.Description}}</td>
+                                <td>{{exercise.Reps}}</td>
+                                <td>{{exercise.Sets}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

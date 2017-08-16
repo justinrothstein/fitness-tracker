@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Fitness Tracker - Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Fitness Tracker</h1>
+        <p class="lead">Welcome to Fitness Tracker! An app designed to help you organize your workout plan as well as track your nutrition intake.</p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img src="~/Content/images/weights.png" alt="Weights" style="width: 304px; height: 228px;" />
+                </div>
+                <div class="col-lg-7">
+                    <div class="row">
+                        <img src="~/Content/images/nutrition.png" alt="Nutrition" style="width: 500px; height: 128px;" />
+                    </div>
+                    <div class="row">
+                        <div class="row">&nbsp;</div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <div class="btn btn-default" style="float: right">
+                                <span>@Html.ActionLink("New User", "Register", "Account")</span>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <div class="btn btn-default" style="float: right">
+                                <span>@Html.ActionLink("Current User", "Login", "Account")</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

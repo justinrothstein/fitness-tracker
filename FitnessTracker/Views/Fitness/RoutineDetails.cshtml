@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Routine Details";
+}
+
+@section scripts{
+    <script src="~/Content/angular/fitnessController.js"></script>
+}
+
+<div class="container" ng-app="fitnessModule" ng-controller="fitnessController">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>Routine Name</h3>
+            </div>
+            <div class="col-lg-3">
+                <h3>Routine Goal</h3>
+            </div>
+            <div class="col-lg-3">
+                <h3>Active Routine</h3>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <input class="input-sm" type="text"
+                       name="Routine Name"
+                       ng-model="model.routineName"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-3">
+                <input class="input-sm" type="text"
+                       name="Routine Goal"
+                       ng-model="model.routineGoal"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-3">
+                <input type="checkbox"
+                       name="Routine Active"
+                       ng-model="model.isRoutineActive"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-3">
+                <div class="btn btn-default navbar-btn" ng-click="createRoutine('@User.Identity.GetUserName()');">
+                    <span>Create Routine</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

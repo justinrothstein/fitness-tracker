@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Fitness";
+}
+
+@section scripts{
+    <script src="~/Content/angular/Fitness/fitnessHomeController.js"></script>
+    <script src="~/Content/angular/Common/notificationService.js"></script>
+}
+<div ng-app="fitnessModule" ng-controller="fitnessHomeController">
+    @Html.Partial("_ConfirmDeleteRoutineModal")
+    <div class="container">
+        <h2>All Routines: </h2>
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th class="col-lg-8">
+                            Routine Name
+                        </th>
+                        <th class="col-lg-2">
+                            Routine Goal
+                        </th>
+                        <th class="col-lg-1">
+                            Active?
+                        </th>
+                        <th class="col-lg-1">
+                        </th>
+                    </tr>
+                    <tr ng-repeat="routine in model.allRoutines">
+                        <td class="col-lg-8">
+                            <span class="glyphicon glyphicon-expand" ng-show="!routine.routineExpanded" ng-click="expandRoutineClicked(routine);"></span>
+                            <span class="glyphicon glyphicon-collapse-down" ng-show="routine.routineExpanded" ng-click="collapseRoutineClicked(routine);"></span>
+                            <a title="Click to Edit Routine" ng-click="editRoutine(routine)"><label>{{routine.RoutineName}}</label></a>
+                            <div class="container">
+                                <div class="row" ng-show="routine.exercises.length > 0">
+                                    <div class="col-md-3">
+                                        <b>Exercise</b>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <b>Description</b>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <b>Sets</b>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <b>Reps</b>
+                                    </div>
+                                </div>
+                                <div class="row" ng-repeat="exercise in routine.exercises">
+                                    <div class="col-md-3">
+                                        <a title="Click to Edit Exercise" ng-click="editExercise(exercise);">
+                                            <label>{{exercise.ExerciseName}}</label>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-5">{{exercise.Description}}</div>
+                                    <div class="col-md-1">{{exercise.Sets}}</div>
+                                    <div class="col-md-1">{{exercise.Reps}}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            {{routine.RoutineGoal}}
+                        </td>
+                        <td>
+                            {{routine.Active}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" title="Delete Routine" ng-click="deleteRoutineClicked(routine);">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-default navbar-btn" ng-click="changeView('Fitness/CreateRoutine');">Create a New Routine</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-default navbar-btn" ng-click="changeView('Fitness/CreateExercise');">Create a New Exercise</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-default navbar-btn" style="width:100%" ng-click="changeView('Fitness/ManageExercises');">Manage Exercises</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

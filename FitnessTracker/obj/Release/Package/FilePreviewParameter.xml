@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="FitnessTracker24" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^c:\\users\\jrothst\\documents\\visual\ studio\ 2015\\Projects\\FitnessTracker\\FitnessTracker\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^c:\\users\\jrothst\\documents\\visual\ studio\ 2015\\Projects\\FitnessTracker\\FitnessTracker\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-FitnessTracker-20170724101418.mdf;Initial Catalog=aspnet-FitnessTracker-20170724101418;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\jrothst\\documents\\visual\ studio\ 2015\\Projects\\FitnessTracker\\FitnessTracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

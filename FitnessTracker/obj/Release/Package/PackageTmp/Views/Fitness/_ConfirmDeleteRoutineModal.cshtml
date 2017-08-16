@@ -1,0 +1,23 @@
+﻿<div class="modal fade" id="confirmDeleteRoutineWindow" tabindex="-1" role="dialog" aria-labelledby="confirmTaskCancel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 400px; height: 350px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <h4 class="modal-title">Are you sure you want to delete routine '{{model.routineToDelete.RoutineName}}'?</h4>
+            </div>
+            <div class="modal-body" style="max-width: 400px; max-height: 350px; overflow-y: auto; overflow-x: hidden;">
+                <div class="row">    
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <button type="button" style="width: 100%" title="Delete" class="btn btn-default"
+                                 ng-click="confirmDeleteClicked();" data-dismiss="modal">Yes</button>
+                    </div>
+                    <div class="col-md-5">
+                        <button type="button" style="width: 100%" title="Back" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

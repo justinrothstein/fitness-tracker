@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Edit Exercise";
+}
+
+@section scripts{
+    <script src="~/Content/angular/Fitness/fitnessEditExerciseController.js"></script>
+}
+
+<div class="container" ng-app="fitnessModule" ng-controller="fitnessEditExerciseController">
+    <h2>Edit an Exercise: {{model.exerciseToEdit.ExerciseName}}</h2>
+
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>Exercise Name</h3>
+            </div>
+            <div class="col-lg-6">
+                <h3>Description</h3>
+            </div>
+            <div class="col-lg-1">
+                <h3>Sets</h3>
+            </div>
+            <div class="col-lg-1">
+                <h3>Reps</h3>
+            </div>
+            <div class="col-lg-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <input class="input-sm" type="text"
+                       name="Exercise Name"
+                       ng-model="model.exerciseToEdit.ExerciseName"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-6">
+                <input class="input-sm" type="text"
+                       name="Description"
+                       ng-model="model.exerciseToEdit.Description"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-1">
+                <input class="input-sm" type="text"
+                       name="Sets"
+                       ng-model="model.exerciseToEdit.Sets"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-1">
+                <input class="input-sm" type="text"
+                       name="Reps"
+                       ng-model="model.exerciseToEdit.Reps"
+                       ng-required="true" />
+            </div>
+            <div class="col-lg-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-default navbar-btn" ng-click="saveChangesClicked();">
+                    <span class="glyphicon glyphicon-floppy-save"></span> Save Changes
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
