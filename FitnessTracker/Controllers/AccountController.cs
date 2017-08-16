@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FitnessTracker.DataAccess;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -95,6 +96,12 @@ namespace FitnessTracker.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    //var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now, 
+                    //    DateTime.Now.AddMinutes(20), model.RememberMe, "", "/");
+
+                    //HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
+                    //Response.Cookies.Add(cookie);
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
