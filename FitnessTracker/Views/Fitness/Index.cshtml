@@ -36,7 +36,7 @@
                                     <div class="col-md-3">
                                         <b>Exercise</b>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-4">
                                         <b>Description</b>
                                     </div>
                                     <div class="col-md-1">
@@ -45,6 +45,9 @@
                                     <div class="col-md-1">
                                         <b>Reps</b>
                                     </div>
+                                    <div class="col-md-1">
+                                        <b>Weight</b>
+                                    </div>
                                 </div>
                                 <div class="row" ng-repeat="exercise in routine.exercises">
                                     <div class="col-md-3">
@@ -52,9 +55,10 @@
                                             <label>{{exercise.ExerciseName}}</label>
                                         </a>
                                     </div>
-                                    <div class="col-md-5">{{exercise.Description}}</div>
+                                    <div class="col-md-4">{{exercise.Description}}</div>
                                     <div class="col-md-1">{{exercise.Sets}}</div>
                                     <div class="col-md-1">{{exercise.Reps}}</div>
+                                    <div class="col-md-1">{{exercise.Weight}}</div>
                                 </div>
                             </div>
                         </td>

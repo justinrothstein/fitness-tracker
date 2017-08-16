@@ -12,6 +12,7 @@ app.controller("fitnessCreateController",
         model.exerciseDescription = "";
         model.exerciseSets = "";
         model.exerciseReps = "";
+        model.exerciseWeight = "";
 
         model.exercises = [];
         model.existingExercises = [];
@@ -95,6 +96,7 @@ app.controller("fitnessCreateController",
             description: model.exerciseDescription,            
             sets: model.exerciseSets,
             reps: model.exerciseReps,
+            weight: model.exerciseWeight,
             userName: userName
         };
 

@@ -3,7 +3,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+@section scripts{
+    <script src="~/Content/angular/UserHome/userHomeController.js"></script>
+}
+
+<div class="container" ng-app="userHomeModule" ng-controller="userHomeController">
     <div class="jumbotron">
         <h1>Fitness Tracker</h1>
         <p class="lead">Welcome to Fitness Tracker! An app designed to help you organize your workout plan as well as track your nutrition intake.</p>
@@ -20,16 +24,17 @@
                     <div class="row">
                         <div class="row">&nbsp;</div>
                         <div class="col-md-1"></div>
+                        <div class="col-md-1"></div>
                         <div class="col-md-3">
-                            <div class="btn btn-default" style="float: right">
-                                <span>@Html.ActionLink("New User", "Register", "Account")</span>
-                            </div>
+                            <button class="btn btn-default" title="Create New Account" ng-click="changeView('Account/Register');" style="width:100%">
+                                New User
+                            </button>
                         </div>
                         <div class="col-md-1"></div>
-                        <div class="col-md-4">
-                            <div class="btn btn-default" style="float: right">
-                                <span>@Html.ActionLink("Current User", "Login", "Account")</span>
-                            </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-default" title="Login" ng-click="changeView('Account/Login');" style="width:100%">
+                                Current User
+                            </button>
                         </div>
                         <div class="col-md-3"></div>
                     </div>

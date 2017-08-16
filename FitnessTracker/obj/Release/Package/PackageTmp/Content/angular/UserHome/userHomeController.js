@@ -17,14 +17,12 @@
 //});
 
 app.controller("userHomeController", function ($scope, $http, $location, $window) {
-    $scope.products = ["Milk", "Bread", "Cheese"];
     var model = {};
     model.routines = [];
     model.exercisesForRoutine = [];
+    model.selectedRoutineID = 0;
 
     $scope.model = model;
-
-
 
     getActiveRoutines();
 
@@ -32,8 +30,14 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
         $window.location.href = basePath + view;
     };
 
-    $scope.detailsClick = function(routineId) {
+    $scope.detailsClick = function (routineId) {
+        model.selectedRoutineID = routineId;
         routineDetails(routineId);
+    }
+
+    $scope.hideDetailsClick = function () {
+        model.selectedRoutineID = 0;
+        model.exercisesForRoutine = [];
     }
 
     function getActiveRoutines() {

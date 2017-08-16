@@ -28,9 +28,9 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="row">
-                        <div class="btn btn-default navbar-btn" ng-click="changeView('Fitness/Index');">
-                            <span>Manage Routines</span>
-                        </div>
+                        <button class="btn btn-default navbar-btn" ng-click="changeView('Fitness/Index');">
+                            Manage Routines
+                        </button>
                     </div>
                     <div class="row">
                         This is where you can go to manage your current Routines.
@@ -60,9 +60,12 @@
                                     {{routine.RoutineGoal}}
                                 </td>
                                 <td>
-                                    <div class="btn btn-default navbar-btn" ng-click="detailsClick(routine.RoutineID);">
-                                        <span>View Details</span>
-                                    </div>
+                                    <button class="btn btn-default navbar-btn" ng-click="detailsClick(routine.RoutineID);" ng-show="model.selectedRoutineID != routine.RoutineID">
+                                        View Details
+                                    </button>
+                                    <button class="btn btn-default navbar-btn" ng-click="hideDetailsClick();" ng-show="model.selectedRoutineID == routine.RoutineID">
+                                        Hide Details
+                                    </button>
                                 </td>
                             </tr>
                         </table>

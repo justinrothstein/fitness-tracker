@@ -246,6 +246,10 @@
     <Compile Include="Migrations\201708011610419_Update.Designer.cs">
       <DependentUpon>201708011610419_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708161952250_AddWeightToExercise.cs" />
+    <Compile Include="Migrations\201708161952250_AddWeightToExercise.Designer.cs">
+      <DependentUpon>201708161952250_AddWeightToExercise.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Exercise.cs" />
@@ -1159,6 +1163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708011610419_Update.resx">
       <DependentUpon>201708011610419_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161952250_AddWeightToExercise.resx">
+      <DependentUpon>201708161952250_AddWeightToExercise.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

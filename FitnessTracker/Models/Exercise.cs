@@ -17,6 +17,7 @@ namespace FitnessTracker.Models
         public string Description { get; set; }
         public int Reps { get; set; }
         public int Sets { get; set; }
+        public int Weight { get; set; }
         [ForeignKey("FitnessUser")]
         public string Username { get; set; }
 

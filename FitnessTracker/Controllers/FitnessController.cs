@@ -88,11 +88,12 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateExercise(string exerciseName, string description, int sets, int reps, string userName)
+        public JsonResult CreateExercise(string exerciseName, string description, int sets, int reps, int weight, string userName)
         {
             using (var context = new FitnessTrackerContext())
             {
-                var exercise = new Exercise() {ExerciseName = exerciseName, Description = description, Sets = sets, Reps = reps, Username = userName};
+                var exercise = new Exercise() {ExerciseName = exerciseName, Description = description, Sets = sets,
+                    Reps = reps, Weight = weight, Username = userName};
                 context.Exercises.Add(exercise);
                 context.SaveChanges();
             }
@@ -125,7 +126,8 @@ namespace FitnessTracker.Controllers
                             Description = newExercise.Description,
                             Sets = newExercise.Sets,
                             Username = User.Identity.GetUserName(),
-                            Reps = newExercise.Reps
+                            Reps = newExercise.Reps,
+                            Weight = newExercise.Weight
                         };
                         exercisesToUpdate.Add(ex);
                     }
@@ -184,6 +186,7 @@ namespace FitnessTracker.Controllers
                     exerciseToUpdate.Description = exercise.Description;
                     exerciseToUpdate.Sets = exercise.Sets;
                     exerciseToUpdate.Reps = exercise.Reps;
+                    exerciseToUpdate.Weight = exercise.Weight;
                 }
 
                 context.Entry(exerciseToUpdate).State = System.Data.Entity.EntityState.Modified;

@@ -85,7 +85,8 @@
                                 <th class="col-md-4">Description</th>
                                 <th class="col-md-1">Sets</th>
                                 <th class="col-md-1">Reps</th>
-                                <th class="col-md-2"></th>
+                                <th class="col-md-1">Weight</th>
+                                <th class="col-md-1"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,6 +113,12 @@
                                     <input type="text" class="input-sm"
                                            name="Reps"
                                            ng-model="exercise.Reps"
+                                           ng-required="true" />
+                                </td>
+                                <td>
+                                    <input type="text" class="input-sm"
+                                           name="Weight"
+                                           ng-model="exercise.Weight"
                                            ng-required="true" />
                                 </td>
                                 <td>
