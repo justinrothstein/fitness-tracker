@@ -18,7 +18,7 @@
                         <th class="col-lg-3">
                             Exercise Name
                         </th>
-                        <th class="col-lg-6">
+                        <th class="col-lg-5">
                             Descritpion
                         </th>
                         <th class="col-lg-1">
@@ -28,6 +28,10 @@
                             Reps
                         </th>
                         <th class="col-lg-1">
+                            Weight
+                        </th>
+                        <th class="col-lg-1">
+                            
                         </th>
                     </tr>
                     <tr ng-repeat="exercise in model.allExercises">
@@ -42,6 +46,9 @@
                         </td>
                         <td>
                             {{exercise.Reps}}
+                        </td>
+                        <td>
+                            {{exercise.Weight}}
                         </td>
                         <td>
                             <button class="btn btn-danger" title="Delete Exercise" ng-click="deleteExerciseClicked(exercise);">

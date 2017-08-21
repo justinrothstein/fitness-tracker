@@ -95,3 +95,4 @@ C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTra
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\Polly.xml
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\SendGrid.pdb
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\SendGrid.xml
+C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Release\FitnessTracker.Migrations.AddWeightToExercise.resources

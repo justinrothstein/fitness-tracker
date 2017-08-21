@@ -32,7 +32,8 @@ app.controller("fitnessEditController", function ($scope, $http, $location, $win
             ExerciseName: "",
             Description: "",
             Sets: "",
-            Reps: ""
+            Reps: "",
+            Weight: ""
         };
 
         model.routineToEdit.exercises.splice(newIndex, 0, newExercise);

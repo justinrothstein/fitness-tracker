@@ -6,4 +6,7 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:fitnesstracker24.database.windows.net,1433;Initial Catalog=FitnessTracker;Persist Security Info=False;User ID=FitnessUser;Password=Fitness1289;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\jrothst\\Documents\\Visual\ Studio\ 2015\\Projects\\FitnessTracker\\FitnessTracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
+  <parameter name="FitnessTrackerContext_DatabasePublish-Web.config Connection String" description="FitnessTrackerContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="FitnessTrackerContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jrothst\\Documents\\Visual\ Studio\ 2015\\Projects\\FitnessTracker\\FitnessTracker\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FitnessTrackerContext_DatabasePublish']/@connectionString" />
+  </parameter>
 </parameters>
