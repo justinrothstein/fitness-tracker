@@ -51,7 +51,8 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateRoutine(string routineName, string routineGoal, string userName, bool isActive, List<Exercise> exercises)
+        public JsonResult CreateRoutine(string routineName, string routineGoal, string userName, bool isActive, List<Exercise> exercises, 
+            bool sunday, bool monday, bool tuesday, bool wednesday, bool thursday, bool friday, bool saturday)
         {
             using (var context = new FitnessTrackerContext())
             {
@@ -79,7 +80,21 @@ namespace FitnessTracker.Controllers
                     }
                 }
 
-                var routine = new Routine() {RoutineName = routineName, RoutineGoal = routineGoal, Username = userName, Active = isActive, Exercises = exercisesToAdd };
+                var routine = new Routine()
+                {
+                    RoutineName = routineName,
+                    RoutineGoal = routineGoal,
+                    Username = userName,
+                    Active = isActive,
+                    Sunday = sunday,
+                    Monday = monday,
+                    Tuesday = tuesday,
+                    Wednesday = wednesday,
+                    Thursday = thursday,
+                    Friday = friday,
+                    Saturday = saturday,
+                    Exercises = exercisesToAdd
+                };
                 context.Routines.Add(routine);
                 context.SaveChanges();
             }
@@ -139,6 +154,13 @@ namespace FitnessTracker.Controllers
                     routineToUpdate.RoutineName = routine.RoutineName;
                     routineToUpdate.RoutineGoal = routine.RoutineGoal;
                     routineToUpdate.Active = routine.Active;
+                    routineToUpdate.Sunday = routine.Sunday;
+                    routineToUpdate.Monday = routine.Monday;
+                    routineToUpdate.Tuesday = routine.Tuesday;
+                    routineToUpdate.Wednesday = routine.Wednesday;
+                    routineToUpdate.Thursday = routine.Thursday;
+                    routineToUpdate.Friday = routine.Friday;
+                    routineToUpdate.Saturday = routine.Saturday;
                 }
 
 

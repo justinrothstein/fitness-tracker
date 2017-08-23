@@ -7,6 +7,7 @@ app.controller("fitnessCreateController",
         model.routineName = "";
         model.routineGoal = "";
         model.isRoutineActive = false;
+        model.days = { Sunday: false, Monday: false, Tuesday:false, Wednesday: false, Thursday: false, Friday: false, Saturday: false};
 
         model.exerciseName = "";
         model.exerciseDescription = "";
@@ -78,7 +79,14 @@ app.controller("fitnessCreateController",
             routineGoal: model.routineGoal,
             userName: userName,
             isActive: model.isRoutineActive,
-            exercises: model.exercises
+            exercises: model.exercises,
+            sunday: model.days.Sunday,
+            monday: model.days.Monday,
+            tuesday: model.days.Tuesday,
+            wednesday: model.days.Wednesday,
+            thursday: model.days.Thursday,
+            friday: model.days.Friday,
+            saturday: model.days.Saturday
         };
 
         $http.post(url, postParams)

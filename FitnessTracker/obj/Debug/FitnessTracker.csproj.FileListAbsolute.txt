@@ -96,3 +96,5 @@ C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTra
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\Polly.pdb
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\Polly.xml
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Debug\FitnessTracker.Migrations.AddWeightToExercise.resources
+C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Debug\FitnessTracker.Migrations.AddDaysToRoutine.resources
+C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Debug\FitnessTracker.Migrations.FixWednesdaySpelling.resources

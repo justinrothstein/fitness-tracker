@@ -250,6 +250,14 @@
     <Compile Include="Migrations\201708161952250_AddWeightToExercise.Designer.cs">
       <DependentUpon>201708161952250_AddWeightToExercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708211743115_AddDaysToRoutine.cs" />
+    <Compile Include="Migrations\201708211743115_AddDaysToRoutine.Designer.cs">
+      <DependentUpon>201708211743115_AddDaysToRoutine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708211757565_FixWednesdaySpelling.cs" />
+    <Compile Include="Migrations\201708211757565_FixWednesdaySpelling.Designer.cs">
+      <DependentUpon>201708211757565_FixWednesdaySpelling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Exercise.cs" />
@@ -1166,6 +1174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708161952250_AddWeightToExercise.resx">
       <DependentUpon>201708161952250_AddWeightToExercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708211743115_AddDaysToRoutine.resx">
+      <DependentUpon>201708211743115_AddDaysToRoutine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708211757565_FixWednesdaySpelling.resx">
+      <DependentUpon>201708211757565_FixWednesdaySpelling.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

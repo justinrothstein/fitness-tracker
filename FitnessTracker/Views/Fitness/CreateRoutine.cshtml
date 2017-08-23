@@ -47,6 +47,71 @@
         <div class="row"><hr/></div>
         <div class="container">
             <div class="row">
+                <h2>Schedule</h2>
+                <table class="table table-striped  table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="col-md-1">Sunday</th>
+                            <th class="col-md-1">Monday</th>
+                            <th class="col-md-1">Tuesday</th>
+                            <th class="col-md-1">Wednesday</th>
+                            <th class="col-md-1">Thursday</th>
+                            <th class="col-md-1">Friday</th>
+                            <th class="col-md-1">Saturday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox"
+                                   name="Sunday"
+                                   ng-model="model.days.Sunday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Monday"
+                                   ng-model="model.days.Monday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Tuesday"
+                                   ng-model="model.days.Tuesday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Wednesday"
+                                   ng-model="model.days.Wednesday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Thursday"
+                                   ng-model="model.days.Thursday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Friday"
+                                   ng-model="model.days.Friday"
+                                   ng-required="true" />
+                        </td>
+                        <td>
+                            <input type="checkbox"
+                                   name="Saturday"
+                                   ng-model="model.days.Saturday"
+                                   ng-required="true" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row"><hr /></div>
+        <div class="container">
+            <div class="row">
                 <h2>Exercises</h2>
                 <div class="col-md-3">
                     <label class="control-label">Existing Exercises:</label>
