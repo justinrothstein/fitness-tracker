@@ -96,3 +96,5 @@ C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTra
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\SendGrid.pdb
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\bin\SendGrid.xml
 C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Release\FitnessTracker.Migrations.AddWeightToExercise.resources
+C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Release\FitnessTracker.Migrations.AddDaysToRoutine.resources
+C:\Users\jrothst\Documents\Visual Studio 2015\Projects\FitnessTracker\FitnessTracker\obj\Release\FitnessTracker.Migrations.FixWednesdaySpelling.resources

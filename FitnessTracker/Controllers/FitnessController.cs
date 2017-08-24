@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.ExceptionServices;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using FitnessTracker.DataAccess;
 using FitnessTracker.Models;
 using Microsoft.AspNet.Identity;
@@ -103,12 +106,33 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateExercise(string exerciseName, string description, int sets, int reps, int weight, string userName)
+        public JsonResult CreateExercise(string exerciseName, string description, string userName, int sets = 0, int reps = 0, int weight = 0)
         {
+            //string xml = "";
+            //string url = @"https://api.nal.usda.gov/ndb/reports/?ndbno=01009&type=b&format=xml&api_key=AAPGMmnC2t1LyDu4pQuBdfZ6CbCwfcpyvolA3ssN";
+
+            //HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
+            //request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            //using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            //using (Stream stream = response.GetResponseStream())
+            //using (StreamReader reader = new StreamReader(stream))
+            //{
+            //    xml = reader.ReadToEnd();
+            //}
+            //XDocument doc = XDocument.Parse(xml);
+
             using (var context = new FitnessTrackerContext())
             {
-                var exercise = new Exercise() {ExerciseName = exerciseName, Description = description, Sets = sets,
-                    Reps = reps, Weight = weight, Username = userName};
+                var exercise = new Exercise()
+                {
+                    ExerciseName = exerciseName,
+                    Description = description,
+                    Sets = sets,
+                    Reps = reps,
+                    Weight = weight,
+                    Username = userName
+                };
                 context.Exercises.Add(exercise);
                 context.SaveChanges();
             }

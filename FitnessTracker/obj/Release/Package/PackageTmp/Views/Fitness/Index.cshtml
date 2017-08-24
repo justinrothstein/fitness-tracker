@@ -31,7 +31,40 @@
                             <span class="glyphicon glyphicon-expand" ng-show="!routine.routineExpanded" ng-click="expandRoutineClicked(routine);"></span>
                             <span class="glyphicon glyphicon-collapse-down" ng-show="routine.routineExpanded" ng-click="collapseRoutineClicked(routine);"></span>
                             <a title="Click to Edit Routine" ng-click="editRoutine(routine)"><label>{{routine.RoutineName}}</label></a>
-                            <div class="container">
+                            <div class="container" ng-show="routine.routineExpanded">
+                                <div class="row">
+                                    <div class="col-md-3"><b>Schedule</b></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" ng-show="routine.Sunday || routine.Monday || routine.Tuesday
+                                         || routine.Wednesday || routine.Thursday || routine.Friday || routine.Saturday">
+                                        <span ng-show="routine.Sunday">
+                                            Sunday
+                                        </span>
+                                        <span ng-show="routine.Monday">
+                                            Monday
+                                        </span>
+                                        <span ng-show="routine.Tuesday">
+                                            Tuesday
+                                        </span>
+                                        <span ng-show="routine.Wednesday">
+                                            Wednesday
+                                        </span>
+                                        <span ng-show="routine.Thursday">
+                                            Thursday
+                                        </span>
+                                        <span ng-show="routine.Friday">
+                                            Friday
+                                        </span>
+                                        <span ng-show="routine.Saturday">
+                                            Saturday
+                                        </span>
+                                    </div>
+                                    <div class="col-md-1" ng-show="!routine.Sunday && !routine.Monday && !routine.Tuesday
+                                         && !routine.Wednesday && !routine.Thursday && !routine.Friday && !routine.Saturday">
+                                        None
+                                    </div>
+                                </div>
                                 <div class="row" ng-show="routine.exercises.length > 0">
                                     <div class="col-md-3">
                                         <b>Exercise</b>

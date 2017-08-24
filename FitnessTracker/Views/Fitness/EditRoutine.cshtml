@@ -159,31 +159,36 @@
                                     <input type="text" class="input-sm"
                                            name="Exercise Name"
                                            ng-model="exercise.ExerciseName"
-                                           ng-required="true" />
+                                           ng-required="true" 
+                                           ng-disabled="exercise.Existing"/>
                                 </td>
                                 <td>
                                     <input type="text" class="input-sm"
                                            name="Exercise Description"
                                            ng-model="exercise.Description"
-                                           ng-required="true" />
+                                           ng-required="true" 
+                                           ng-disabled="exercise.Existing"/>
                                 </td>
                                 <td>
                                     <input type="text" class="input-sm"
                                            name="Sets"
                                            ng-model="exercise.Sets"
-                                           ng-required="true" />
+                                           ng-required="true" 
+                                           ng-disabled="exercise.Existing"/>
                                 </td>
                                 <td>
                                     <input type="text" class="input-sm"
                                            name="Reps"
                                            ng-model="exercise.Reps"
-                                           ng-required="true" />
+                                           ng-required="true" 
+                                           ng-disabled="exercise.Existing"/>
                                 </td>
                                 <td>
                                     <input type="text" class="input-sm"
                                            name="Weight"
                                            ng-model="exercise.Weight"
-                                           ng-required="true" />
+                                           ng-required="true" 
+                                           ng-disabled="exercise.Existing"/>
                                 </td>
                                 <td>
                                     <button class="btn btn-default" ng-click="removeExercise(exercise)">

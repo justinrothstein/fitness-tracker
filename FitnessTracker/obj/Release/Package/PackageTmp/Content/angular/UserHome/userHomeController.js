@@ -18,13 +18,16 @@
 
 app.controller("userHomeController", function ($scope, $http, $location, $window) {
     var model = {};
-    model.routines = [];
+    model.activeRoutines = [];
     model.exercisesForRoutine = [];
     model.selectedRoutineID = 0;
+
+    model.todaysRoutines = [];
 
     $scope.model = model;
 
     getActiveRoutines();
+    getTodaysRoutines();
 
     $scope.changeView = function (view) {
         $window.location.href = basePath + view;
@@ -41,12 +44,22 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
     }
 
     function getActiveRoutines() {
-        model.routines = [];
+        model.activeRoutines = [];
         var url = basePath + "UserHome/GetActiveRoutines";
 
         $http.get(url)
             .then(function (result) {
-                model.routines = result.data;
+                model.activeRoutines = result.data;
+            });
+    }
+
+    function getTodaysRoutines() {
+        model.todaysRoutines = [];
+        var url = basePath + "UserHome/GetTodaysRoutines";
+
+        $http.get(url)
+            .then(function(result) {
+                model.todaysRoutines = result.data;
             });
     }
 

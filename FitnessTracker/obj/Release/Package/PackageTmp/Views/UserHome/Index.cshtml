@@ -14,31 +14,42 @@
     <div class="container">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-6">
                     <div class="row">
-                        <div class="btn btn-default navbar-btn" ng-click="changeView('Fitness/CreateRoutine');">
-                            <span>Create a New Routine</span>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="btn btn-default navbar-btn" ng-click="changeView('Fitness/CreateRoutine');">
+                                    <span>Create a New Routine</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                This is where you can go to create your
+                                own fitness plan. Setup a schedule with
+                                a workout plan!
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <button class="btn btn-default navbar-btn" ng-click="changeView('Fitness/Index');">
+                                    Manage Routines
+                                </button>
+                            </div>
+                            <div class="row">
+                                This is where you can go to manage your current Routines.
+                                View and Edit your routines!
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        This is where you can go to create your
-                        own fitness plan. Setup a schedule with
-                        a workout plan!
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="row">
-                        <button class="btn btn-default navbar-btn" ng-click="changeView('Fitness/Index');">
-                            Manage Routines
-                        </button>
-                    </div>
-                    <div class="row">
-                        This is where you can go to manage your current Routines.
-                        View and Edit your routines!
+                        <h2 class="blink_text">Here are your routines for today!</h2>
+                        <p ng-show="model.todaysRoutines.length == 0"><b>NONE!</b> Must be a rest day.</p>
+                        <ul ng-show="model.todaysRoutines.length > 0">
+                            <li ng-repeat="routine in model.todaysRoutines"><h4>{{routine.RoutineName}}</h4></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="container" ng-show="model.routines.length > 0">
+                    <div class="container" ng-show="model.activeRoutines.length > 0">
                         <h3>Active Routines:</h3>
                         <table class="table">
                             <tr>
@@ -52,7 +63,7 @@
                                     Details
                                 </th>
                             </tr>
-                            <tr ng-repeat="routine in model.routines">
+                            <tr ng-repeat="routine in model.activeRoutines">
                                 <td>
                                     {{routine.RoutineName}}
                                 </td>

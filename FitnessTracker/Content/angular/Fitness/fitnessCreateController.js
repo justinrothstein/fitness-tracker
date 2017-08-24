@@ -54,6 +54,8 @@ app.controller("fitnessCreateController",
             var newIndex = model.exercises.length + 1;
             var newExercise = model.existingExerciseSelected;
 
+            newExercise.Existing = true;
+
             model.exercises.splice(newIndex, 0, newExercise);
 
             var indexOfExisting = model.existingExercises.indexOf(newExercise);
