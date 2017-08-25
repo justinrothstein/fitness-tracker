@@ -39,6 +39,7 @@ namespace FitnessTracker.Controllers
         [HttpGet]
         public JsonResult GetTodaysRoutines()
         {
+            //TODO maybe need to do on client side for timezone reasons.
             List<Routine> allRoutines;
             List<Routine> todaysRoutines = new List<Routine>();
             using (var context = new FitnessTrackerContext())
@@ -95,6 +96,21 @@ namespace FitnessTracker.Controllers
             }
 
             return Json(exercises, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetFirstName()
+        {
+            string firstName = "";
+            string userName = User.Identity.GetUserName();
+            using (var context = new FitnessTrackerContext())
+            {
+                FitnessUser user = (from fitnessUser in context.FitnessUsers
+                    where fitnessUser.Username == userName
+                    select fitnessUser).FirstOrDefault();
+                firstName = user.Firstname;
+            }
+            return Json(firstName, JsonRequestBehavior.AllowGet);
         }
     }
 }

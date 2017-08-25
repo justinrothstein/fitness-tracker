@@ -108,20 +108,6 @@ namespace FitnessTracker.Controllers
         [HttpPost]
         public JsonResult CreateExercise(string exerciseName, string description, string userName, int sets = 0, int reps = 0, int weight = 0)
         {
-            //string xml = "";
-            //string url = @"https://api.nal.usda.gov/ndb/reports/?ndbno=01009&type=b&format=xml&api_key=AAPGMmnC2t1LyDu4pQuBdfZ6CbCwfcpyvolA3ssN";
-
-            //HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
-            //request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            //using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            //using (Stream stream = response.GetResponseStream())
-            //using (StreamReader reader = new StreamReader(stream))
-            //{
-            //    xml = reader.ReadToEnd();
-            //}
-            //XDocument doc = XDocument.Parse(xml);
-
             using (var context = new FitnessTrackerContext())
             {
                 var exercise = new Exercise()

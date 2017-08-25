@@ -43,6 +43,8 @@ app.controller("fitnessEditController", function ($scope, $http, $location, $win
         var newIndex = model.routineToEdit.exercises.length + 1;
         var newExercise = model.existingExerciseSelected;
 
+        newExercise.Existing = true;
+
         model.routineToEdit.exercises.splice(newIndex, 0, newExercise);
 
         var indexOfExisting = model.existingExercises.indexOf(newExercise);
@@ -76,6 +78,10 @@ app.controller("fitnessEditController", function ($scope, $http, $location, $win
         $http.get(url)
             .then(function (result) {
                 routine.exercises = result.data;
+                angular.forEach(routine.exercises,
+                    function (exercise) {
+                        exercise.Existing = true;
+                    });
             }).then(function() {
                 if (callback) {
                     callback(routine);
