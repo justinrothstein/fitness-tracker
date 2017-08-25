@@ -77,7 +77,8 @@ namespace FitnessTracker.Controllers
                             Description = newExercise.Description,
                             Sets = newExercise.Sets,
                             Username = userName,
-                            Reps = newExercise.Reps
+                            Reps = newExercise.Reps,
+                            Weight = newExercise.Weight
                         };
                         exercisesToAdd.Add(ex);
                     }

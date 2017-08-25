@@ -22,12 +22,15 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
     model.exercisesForRoutine = [];
     model.selectedRoutineID = 0;
 
+    model.userFirstName = '';
+
     model.todaysRoutines = [];
 
     $scope.model = model;
 
     getActiveRoutines();
     getTodaysRoutines();
+    getFirstName();
 
     $scope.changeView = function (view) {
         $window.location.href = basePath + view;
@@ -71,6 +74,17 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
         $http.get(url)
             .then(function (result) {
                 model.exercisesForRoutine = result.data;
+            });
+    }
+
+    function getFirstName() {
+        model.userFirstName = '';
+
+        var url = basePath + "UserHome/GetFirstName";
+
+        $http.get(url)
+            .then(function(result) {
+                model.userFirstName = result.data;
             });
     }
 
