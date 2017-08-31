@@ -149,7 +149,8 @@
                             <th class="col-md-4">Description</th>
                             <th class="col-md-1">Sets</th>
                             <th class="col-md-1">Reps</th>
-                            <th class="col-md-2"></th>
+                            <th class="col-md-1">Weight</th>
+                            <th class="col-md-1"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -181,6 +182,13 @@
                                        ng-model="exercise.Reps"
                                        ng-required="true" 
                                        ng-disabled="exercise.Existing"/>
+                            </td>
+                            <td>
+                                <input type="text" class="input-sm"
+                                       name="Weight"
+                                       ng-model="exercise.Weight"
+                                       ng-required="true"
+                                       ng-disabled="exercise.Existing" />
                             </td>
                             <td>
                                 <button class="btn btn-default" ng-click="removeExercise(exercise)">

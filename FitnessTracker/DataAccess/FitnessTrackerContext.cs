@@ -17,5 +17,7 @@ namespace FitnessTracker.DataAccess
         public DbSet<FitnessUser> FitnessUsers { get; set; }
         public DbSet<Routine> Routines { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<FoodItem> FoodItems { get; set; }
+        public DbSet<Nutrient> Nutrients { get; set; }
     }
 }

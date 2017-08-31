@@ -1,0 +1,52 @@
+﻿<div class="modal fade" id="foodDetailsWindow" tabindex="-1" role="dialog" aria-labelledby="confirmTaskCancel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px; height: 800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <h4 class="modal-title">Nutrition Details for: '{{model.foodDetails.Name}}'</h4>
+            </div>
+            <div class="modal-body" style="max-width: 800px; max-height: 800px; overflow-y: auto; overflow-x: hidden;">
+                <div class="container">
+                    <select id="servingList"
+                            class="form-control"
+                            ng-model="model.selectedServingSize"
+                            ng-change="onServingSizeChanged();"
+                            ng-options="servingSize.Quantity + ' - ' + servingSize.Label for servingSize in model.foodNutrientMeasures">
+                    </select>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row" ng-repeat="nutrient in model.foodDetails.Nutrients">
+                                <div class="col-md-2">
+                                    <b>Nutrient:</b>
+                                </div>
+                                <div class="col-md-4">{{nutrient.Name}}</div>
+                                <div class="col-md-2">
+                                    <b>Amount:</b>
+                                </div>
+                                <div class="col-md-4">{{nutrient.currentServingSize.Value}} {{nutrient.Unit}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <label>Servings:</label>
+                                <input class="input-sm" type="number"
+                                       name="Servings" min="0.5"
+                                       step="0.5" max="10"
+                                       ng-model="model.servings"
+                                       ng-required="true"/>
+                                <div>&nbsp;</div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-default" ng-click="onAddFoodClick();"
+                                        ng-disabled="!model.servings">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    Add Food Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

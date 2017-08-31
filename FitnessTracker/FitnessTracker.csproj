@@ -209,8 +209,12 @@
     <Compile Include="Controllers\FitnessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NutritionController.cs" />
     <Compile Include="Controllers\UserHomeController.cs" />
     <Compile Include="DataAccess\FitnessTrackerContext.cs" />
+    <Compile Include="DTOs\FoodDetailsDto.cs" />
+    <Compile Include="DTOs\MeasureDto.cs" />
+    <Compile Include="DTOs\NutrientDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,15 +262,31 @@
     <Compile Include="Migrations\201708211757565_FixWednesdaySpelling.Designer.cs">
       <DependentUpon>201708211757565_FixWednesdaySpelling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708311405176_AddFoodItemTable.cs" />
+    <Compile Include="Migrations\201708311405176_AddFoodItemTable.Designer.cs">
+      <DependentUpon>201708311405176_AddFoodItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708311409186_AcutallyAddFoodTable.cs" />
+    <Compile Include="Migrations\201708311409186_AcutallyAddFoodTable.Designer.cs">
+      <DependentUpon>201708311409186_AcutallyAddFoodTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708311448507_SplitNutrientsIntoOwnTable.cs" />
+    <Compile Include="Migrations\201708311448507_SplitNutrientsIntoOwnTable.Designer.cs">
+      <DependentUpon>201708311448507_SplitNutrientsIntoOwnTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\FitnessUser.cs" />
+    <Compile Include="DTOs\FoodSearchDto.cs" />
+    <Compile Include="Models\FoodItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Nutrient.cs" />
     <Compile Include="Models\Routine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\NutritionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular\Common\notificationService.js" />
@@ -275,6 +295,7 @@
     <Content Include="Content\angular\Fitness\fitnessEditExerciseController.js" />
     <Content Include="Content\angular\Fitness\fitnessExerciseController.js" />
     <Content Include="Content\angular\Fitness\fitnessHomeController.js" />
+    <Content Include="Content\angular\Nutrition\nutritionHomeController.js" />
     <Content Include="Content\angular\UserHome\userHomeController.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\toastr.css" />
@@ -1133,6 +1154,8 @@
     <Content Include="Views\Fitness\_ConfirmDeleteExerciseModal.cshtml" />
     <Content Include="Views\Fitness\EditExercise.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Nutrition\Index.cshtml" />
+    <Content Include="Views\Nutrition\_FoodDetailsModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1180,6 +1203,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708211757565_FixWednesdaySpelling.resx">
       <DependentUpon>201708211757565_FixWednesdaySpelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708311405176_AddFoodItemTable.resx">
+      <DependentUpon>201708311405176_AddFoodItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708311409186_AcutallyAddFoodTable.resx">
+      <DependentUpon>201708311409186_AcutallyAddFoodTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708311448507_SplitNutrientsIntoOwnTable.resx">
+      <DependentUpon>201708311448507_SplitNutrientsIntoOwnTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

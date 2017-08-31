@@ -53,3 +53,9 @@ input[type="text"] {
      50% { opacity: 0.0; }
      100% { opacity: 1.0; }
      }
+
+.recordCountSpan {
+    margin: 5px;
+    font-weight: bold;
+
+}

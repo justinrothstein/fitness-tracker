@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using FitnessTracker.DataAccess;
 using FitnessTracker.Models;
+using FitnessTracker.Utilities;
 using Microsoft.AspNet.Identity;
 
 namespace FitnessTracker.Controllers
@@ -19,6 +20,13 @@ namespace FitnessTracker.Controllers
             return View();
         }
 
+
+        public void TestApi()
+        {
+            NutritionUtil util = new NutritionUtil();
+            //var results = util.SearchFoodsByName("butter");
+            var result = util.GetFoodDetails("21228");
+        }
 
         [HttpGet]
         public JsonResult GetActiveRoutines()
