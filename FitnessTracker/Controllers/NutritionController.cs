@@ -38,9 +38,62 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetTodaysNutrientTotals()
+        {
+            List<FoodItem> foodList = new List<FoodItem>();
+            List<Nutrient> nutrientTotals = new List<Nutrient>();
+
+            string todaysDate = DateTime.Today.ToString("yyyyMMdd");
+            string username = User.Identity.GetUserName();
+
+            using (var context = new FitnessTrackerContext())
+            {
+                context.Configuration.LazyLoadingEnabled = false;
+
+                foodList = (from foodItem in context.FoodItems
+                            where foodItem.Username == username
+                                  && foodItem.DateAdded == todaysDate
+                            select foodItem).ToList();
+
+                foreach (var foodItem in foodList)
+                {
+                    List<Nutrient> nutrientsForFood = new List<Nutrient>();
+
+                    nutrientsForFood = (from nutrient in context.Nutrients
+                                        where nutrient.FoodId == foodItem.FoodId
+                                        select nutrient).ToList();
+
+                    foreach (var nutrient in nutrientsForFood)
+                    {
+                        var nutrientCheck = nutrientTotals.FirstOrDefault(x => x.Name == nutrient.Name);
+                        if (nutrientCheck == null)
+                        {
+                            Nutrient nutrientToAdd = new Nutrient()
+                            {
+                                Name = nutrient.Name,
+                                FoodId = nutrient.FoodId,
+                                Unit = nutrient.Unit,
+                                Value = (nutrient.Value * nutrient.FoodItem.ServingsConsumed)
+                            };
+                            nutrientTotals.Add(nutrientToAdd);
+                        }
+                        else
+                        {
+                            nutrientCheck.Value += (nutrient.Value * nutrient.FoodItem.ServingsConsumed);
+                        }
+                        
+                    }
+                }
+            }
+
+            return Json(nutrientTotals, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetTodaysFoods()
         {
             List<FoodItem> foodList = new List<FoodItem>();
+            List<Nutrient> nutrientTotals = new List<Nutrient>();
 
             string todaysDate = DateTime.Today.ToString("yyyyMMdd");
             string username = User.Identity.GetUserName();
