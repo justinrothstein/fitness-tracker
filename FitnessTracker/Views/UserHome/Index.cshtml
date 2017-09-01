@@ -48,9 +48,10 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-md-8" ng-show="model.todaysNutrientTotals.length > 0">
+                        <div class="col-md-8">
                             <h4><b>Nutrition Details for Today:</b></h4>
-                            <table class="table table-bordered table-striped table-condensed">
+                            <label ng-show="model.todaysNutrientTotals.length == 0">No nutritional details yet.</label>
+                            <table class="table table-bordered table-striped table-condensed" ng-show="model.todaysNutrientTotals.length > 0">
                                 <thead>
                                 <tr>
                                     <th class="col-md-3">Nutrient</th>
