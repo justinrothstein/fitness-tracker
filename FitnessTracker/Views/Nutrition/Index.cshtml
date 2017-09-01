@@ -25,18 +25,18 @@
                         <h4>Food Details:</h4>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
-                            <tr>
-                                <th class="col-md-8">Food</th>
-                                <th class="col-md-2">Serving Size</th>
-                                <th class="col-md-2">Servings Consumed</th>
-                            </tr>
+                                <tr>
+                                    <th class="col-md-8">Food</th>
+                                    <th class="col-md-2">Serving Size</th>
+                                    <th class="col-md-2">Servings Consumed</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="food in model.todaysFoods">
-                                <td class="col-md-8">{{food.Name}}</td>
-                                <td class="col-md-2">{{food.ServingAmount}} {{food.ServingLabel}}</td>
-                                <td class="col-md-2">{{food.ServingsConsumed}}</td>
-                            </tr>
+                                <tr ng-repeat="food in model.todaysFoods">
+                                    <td class="col-md-8">{{food.Name}}</td>
+                                    <td class="col-md-2">{{food.ServingAmount}} {{food.ServingLabel}}</td>
+                                    <td class="col-md-2">{{food.ServingsConsumed}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -46,16 +46,16 @@
                         <h4>Nutrient Details:</h4>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
-                            <tr>
-                                <th class="col-md-3">Nutrient</th>
-                                <th class="col-md-3">Total for today</th>
-                            </tr>
+                                <tr>
+                                    <th class="col-md-3">Nutrient</th>
+                                    <th class="col-md-3">Total for today</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="nutrient in model.todaysNutrientTotals">
-                                <td class="col-md-3">{{nutrient.Name}}</td>
-                                <td class="col-md-3">{{nutrient.Value}} {{nutrient.Unit}}</td>
-                            </tr>
+                                <tr ng-repeat="nutrient in model.todaysNutrientTotals">
+                                    <td class="col-md-3">{{nutrient.Name}}</td>
+                                    <td class="col-md-3">{{nutrient.Value}} {{nutrient.Unit}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -64,21 +64,25 @@
                             <div class="col-md-2">
                                 <h4>Add Foods:</h4>
                             </div>
-                            <div class="col-md-5">
-                                <input class="input-sm" type="text"
-                                       name="Food Search"
-                                       ng-model="model.searchText" />
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-default" ng-click="searchButtonClicked();" ng-disabled="!model.searchText">
-                                    <span class="glyphicon glyphicon-search"></span> Search
-                                </button>
-                            </div>
+                            <form ng-submit="searchButtonClicked();">
+                                <div class="col-md-5">
+                                    <input class="input-sm" type="text"
+                                           name="Food Search"
+                                           ng-model="model.searchText" />
+                                </div>
+
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default" ng-disabled="!model.searchText">
+                                        <span class="glyphicon glyphicon-search"></span> Search
+                                    </button>
+                                </div>
+                            </form>
                             <div class="col-md-3">
                                 <button class="btn btn-default btn-warning" ng-click="clearSearchButtonClicked();">
                                     <span class="glyphicon glyphicon-minus-sign"></span> Clear Search
                                 </button>
                             </div>
+
                         </div>
                         <div class="row" ng-show="model.searchList.length > 0">
                             <!-- Pagination -->
