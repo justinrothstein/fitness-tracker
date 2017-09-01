@@ -59,3 +59,7 @@ input[type="text"] {
     font-weight: bold;
 
 }
+
+.noWrap{
+    white-space: nowrap;
+}

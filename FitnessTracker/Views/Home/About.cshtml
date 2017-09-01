@@ -2,9 +2,58 @@
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<div class="container">
+    <div class="row">
+        <h2>About Fitness Tracker</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Fitness Tracker is an app designed to create exercise routines and track your nutrional intake to maximize visibility into achieving your health and fitness goals.
+                Each user has their own unique homepage where they are able to view their fitness and nutrional data and also have the ability to put in new/current
+            data at any time.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Features of Version 1.0</h4>
+            <hr />
+            <ul>
+                <li><h5><label>Fitness</label></h5>
+                    <ul>
+                        <li>Create a workout routine that states a goal in mind.</li>
+                        <li>Ability to have workout routines be active of inactive and follow a weekly schedule.</li>
+                        <li>Create exercises that track the number of reps, sets, and weights used.</li>
+                        <li>Ability to modify existing routines and exercise to update as needed.</li>
+                        <li>Show's all active routines as well as any routines for the current day on your homepage.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h5><label>Nutrition</label></h5>
+                    <ul>
+                        <li>User's can search for food items in a database of over 600,000 different foods.</li>
+                        <li>Ability to add food items to your daily intake.</li>
+                        <li>Ability to adjust servings and remove food items from your daily intake.</li>
+                        <li>Table of nutritional info for the day on both the Homepage and Nutrition page.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Upcoming Features</h4>
+            <hr />
+            <ul>
+                <li>Ability to separate foods into different meals (i.e. breakfast, lunch, dinner, snack).</li>
+                <li>Ability to see details of each food in your daily chart.</li>
+                <li>Ability to view past food records.</li>
+                <li>Ability to get recommendations for nutrient intake for various things based on health goals (i.e. lose weight, gain muscle).</li>
+                <li>Ability to enter exercise information that is completed and get information about calories burned, etc.</li>
+                <li>Ability to plan a nutrient goal based on a schedule. Also able to compare difference between daily intake and goal.</li>
+                <li>Ability to see nutritional trends.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<div>@Html.ActionLink("Test Call", "TestApi", "UserHome")</div>
+
+@*<div>@Html.ActionLink("Test Call", "TestApi", "UserHome")</div>*@

@@ -81,6 +81,20 @@ app.controller("nutritionHomeController", function ($scope, $http, $location, $w
         addFoodItem(model.foodDetails);
     }
 
+    $scope.deleteFoodItemClicked = function(foodItem) {
+        deleteFoodItem(foodItem);
+    }
+
+    $scope.increaseServingClicked = function(foodItem) {
+        foodItem.ServingsConsumed += .5;
+        updateServingsConsumed(foodItem);
+    }
+
+    $scope.decreaseServingClicked = function (foodItem) {
+        foodItem.ServingsConsumed -= .5;
+        updateServingsConsumed(foodItem);
+    }
+
     //------------------------------------------------
 
     function showFoodDetailsModal() {
@@ -183,6 +197,49 @@ app.controller("nutritionHomeController", function ($scope, $http, $location, $w
             getTodaysNutrientTotals();
             notification.success("Food Item added!");
         });;
+    }
+
+    function updateServingsConsumed(foodItem) {
+        var url = basePath + "Nutrition/UpdateServingsConsumed";
+        var postParams = {
+            foodItem: foodItem
+        };
+
+        $http.post(url, postParams)
+        .then(function (result) {
+            if (result.data === true) {
+                //Nothing to do?
+            }
+        }).then(function () {
+            // Finally block
+            //getTodaysFoods(); Not needed?
+            getTodaysNutrientTotals();
+        });
+    }
+
+    function deleteFoodItem(foodItem) {
+        var url = basePath + "Nutrition/DeleteFoodItem";
+        var postParams = {
+            foodId: foodItem.FoodId
+        };
+
+        $http.post(url, postParams)
+        .then(function (result) {
+            if (result.data === true) {
+                notification.success("Food Item Deleted.");
+            }
+        }).then(function () {
+            // Finally block
+            getTodaysFoods();
+            getTodaysNutrientTotals();
+        },
+                function (result) {
+                    // Error
+                    if (result.status == '500') {
+                        // 404 errors will occur if user moves off page before AJAX is finished. 
+                        notification.error("Error deleting food item.");
+                    }
+                });
     }
 
 });

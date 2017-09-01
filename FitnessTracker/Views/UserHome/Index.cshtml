@@ -47,6 +47,30 @@
                             <li ng-repeat="routine in model.todaysRoutines"><h4>{{routine.RoutineName}}</h4></li>
                         </ul>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8" ng-show="model.todaysNutrientTotals.length > 0">
+                            <h4><b>Nutrition Details for Today:</b></h4>
+                            <table class="table table-bordered table-striped table-condensed">
+                                <thead>
+                                <tr>
+                                    <th class="col-md-3">Nutrient</th>
+                                    <th class="col-md-3">Total for today</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="nutrient in model.todaysNutrientTotals">
+                                    <td class="col-md-3">{{nutrient.Name}}</td>
+                                    <td class="col-md-3">{{nutrient.Value}} {{nutrient.Unit}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-default navbar-btn" ng-click="changeView('Nutrition/Index');">
+                                Manage Nutrition
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="container" ng-show="model.activeRoutines.length > 0">

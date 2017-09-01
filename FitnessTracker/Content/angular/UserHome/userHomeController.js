@@ -25,12 +25,14 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
     model.userFirstName = '';
 
     model.todaysRoutines = [];
+    model.todaysNutrientTotals = [];
 
     $scope.model = model;
 
     getActiveRoutines();
     getTodaysRoutines();
     getFirstName();
+    getTodaysNutrientTotals();
 
     $scope.changeView = function (view) {
         $window.location.href = basePath + view;
@@ -63,6 +65,15 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
         $http.get(url)
             .then(function(result) {
                 model.todaysRoutines = result.data;
+            });
+    }
+
+    function getTodaysNutrientTotals() {
+        var url = basePath + "Nutrition/GetTodaysNutrientTotals";
+
+        $http.get(url)
+            .then(function (result) {
+                model.todaysNutrientTotals = result.data;
             });
     }
 
