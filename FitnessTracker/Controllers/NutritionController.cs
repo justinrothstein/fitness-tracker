@@ -73,13 +73,14 @@ namespace FitnessTracker.Controllers
                                 Name = nutrient.Name,
                                 FoodId = nutrient.FoodId,
                                 Unit = nutrient.Unit,
-                                Value = (nutrient.Value * nutrient.FoodItem.ServingsConsumed)
+                                Value = Math.Round(nutrient.Value * nutrient.FoodItem.ServingsConsumed, 2)
                             };
                             nutrientTotals.Add(nutrientToAdd);
                         }
                         else
                         {
                             nutrientCheck.Value += (nutrient.Value * nutrient.FoodItem.ServingsConsumed);
+                            nutrientCheck.Value = Math.Round(nutrientCheck.Value, 2);
                         }
                         
                     }
@@ -152,6 +153,48 @@ namespace FitnessTracker.Controllers
                     context.Nutrients.Add(nutrientToAdd);
                 }
 
+                context.SaveChanges();
+            }
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateServingsConsumed(FoodItem foodItem)
+        {
+            FoodItem foodItemToUpdate;
+
+            using (var context = new FitnessTrackerContext())
+            {
+                context.Configuration.LazyLoadingEnabled = false;
+
+                foodItemToUpdate = context.FoodItems.Find(foodItem.FoodId);
+
+                if (foodItemToUpdate != null)
+                {
+                    foodItemToUpdate.ServingsConsumed = foodItem.ServingsConsumed;
+                }
+                context.Entry(foodItemToUpdate).State = System.Data.Entity.EntityState.Modified;
+
+                context.SaveChanges();
+            }
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteFoodItem(int foodId)
+        {
+            FoodItem foodItemToDelete;
+
+            using (var context = new FitnessTrackerContext())
+            {
+                foodItemToDelete = context.FoodItems.Find(foodId);
+
+                if (foodItemToDelete != null)
+                {
+                    context.FoodItems.Remove(foodItemToDelete);
+                }
                 context.SaveChanges();
             }
 

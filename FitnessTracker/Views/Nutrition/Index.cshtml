@@ -26,16 +26,33 @@
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
-                                    <th class="col-md-8">Food</th>
+                                    <th class="col-md-6">Food</th>
                                     <th class="col-md-2">Serving Size</th>
-                                    <th class="col-md-2">Servings Consumed</th>
+                                    <th class="col-md-1">Servings</th>
+                                    <th class="col-md-1">Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="food in model.todaysFoods">
-                                    <td class="col-md-8">{{food.Name}}</td>
+                                    <td class="col-md-6">{{food.Name}}</td>
                                     <td class="col-md-2">{{food.ServingAmount}} {{food.ServingLabel}}</td>
-                                    <td class="col-md-2">{{food.ServingsConsumed}}</td>
+                                    <td class="col-md-1">
+                                        {{food.ServingsConsumed}} <div class="btn-group pull-right" style="margin-right: 15px;">
+                                            <button class="btn btn-xs btn-primary form-control; noWrap" ng-disabled="food.ServingsConsumed == 25" 
+                                                    ng-click="increaseServingClicked(food);" title="Increase Servings">
+                                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                            </button>
+                                            <button class="btn btn-xs btn-primary form-control; noWrap" ng-disabled="food.ServingsConsumed == .5"
+                                                     ng-click="decreaseServingClicked(food);" title="Decrease Servings">
+                                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-1">
+                                        <button class="btn-xs btn-danger form-control; noWrap" title="Delete Food Item" ng-click="deleteFoodItemClicked(food);">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
