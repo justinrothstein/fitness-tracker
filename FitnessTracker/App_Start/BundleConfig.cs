@@ -25,7 +25,8 @@ namespace FitnessTracker
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/toastr.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/moment.min.js"));
 
             // jrothst 8/1/2017 - I needed to use the CssRewriteUrlTransform class so that bootstrap.css has the relative paths to the 'fonts' folder
             // changed to an absolute path. Otherwise, the Glyphicons were not being found in the 'fonts' folder.

@@ -59,8 +59,11 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
     }
 
     function getTodaysRoutines() {
+        var date = new Date();
+        var day = moment(date).format('dddd');
+
         model.todaysRoutines = [];
-        var url = basePath + "UserHome/GetTodaysRoutines";
+        var url = basePath + "UserHome/GetTodaysRoutines?day=" + day;
 
         $http.get(url)
             .then(function(result) {
@@ -69,7 +72,10 @@ app.controller("userHomeController", function ($scope, $http, $location, $window
     }
 
     function getTodaysNutrientTotals() {
-        var url = basePath + "Nutrition/GetTodaysNutrientTotals";
+        var date = new Date();
+        var formattedDate = moment(date).format('YYYYMMDD');
+
+        var url = basePath + "Nutrition/GetTodaysNutrientTotals?date=" + formattedDate;
 
         $http.get(url)
             .then(function (result) {

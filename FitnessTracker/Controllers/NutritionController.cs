@@ -38,12 +38,11 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetTodaysNutrientTotals()
+        public JsonResult GetTodaysNutrientTotals(string date)
         {
             List<FoodItem> foodList = new List<FoodItem>();
             List<Nutrient> nutrientTotals = new List<Nutrient>();
-
-            string todaysDate = DateTime.Today.ToString("yyyyMMdd");
+            
             string username = User.Identity.GetUserName();
 
             using (var context = new FitnessTrackerContext())
@@ -52,7 +51,7 @@ namespace FitnessTracker.Controllers
 
                 foodList = (from foodItem in context.FoodItems
                             where foodItem.Username == username
-                                  && foodItem.DateAdded == todaysDate
+                                  && foodItem.DateAdded == date
                             select foodItem).ToList();
 
                 foreach (var foodItem in foodList)
@@ -91,12 +90,11 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetTodaysFoods()
+        public JsonResult GetTodaysFoods(string date)
         {
             List<FoodItem> foodList = new List<FoodItem>();
             List<Nutrient> nutrientTotals = new List<Nutrient>();
-
-            string todaysDate = DateTime.Today.ToString("yyyyMMdd");
+            
             string username = User.Identity.GetUserName();
 
             using (var context = new FitnessTrackerContext())
@@ -105,7 +103,7 @@ namespace FitnessTracker.Controllers
 
                 foodList = (from foodItem in context.FoodItems
                     where foodItem.Username == username
-                          && foodItem.DateAdded == todaysDate
+                          && foodItem.DateAdded == date
                     select foodItem).ToList();
             }
 
@@ -113,7 +111,7 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddFoodItem(FoodDetailsDto foodItemDetails, MeasureDto selectedServingSize, double servings)
+        public JsonResult AddFoodItem(FoodDetailsDto foodItemDetails, MeasureDto selectedServingSize, double servings, string date)
         {
             using (var context = new FitnessTrackerContext())
             {
@@ -124,7 +122,7 @@ namespace FitnessTracker.Controllers
                 food.FitnessUser = user;
                 food.Name = foodItemDetails.Name;
                 food.UsdaDbNum = foodItemDetails.UsdaDbNum;
-                food.DateAdded = DateTime.Today.ToString("yyyyMMdd");
+                food.DateAdded = date;
 
                 double servingAmount = selectedServingSize.Quantity;
                 string servingLabel = selectedServingSize.Label;

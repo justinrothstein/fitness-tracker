@@ -45,7 +45,7 @@ namespace FitnessTracker.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetTodaysRoutines()
+        public JsonResult GetTodaysRoutines(string day)
         {
             //TODO maybe need to do on client side for timezone reasons.
             List<Routine> allRoutines;
@@ -57,8 +57,7 @@ namespace FitnessTracker.Controllers
                 allRoutines = (from routine in context.Routines
                             where routine.Username == email && routine.Active
                             select routine).ToList();
-
-                string day = DateTime.Today.DayOfWeek.ToString();
+                
                 foreach (var routine in allRoutines)
                 {
                     switch (day.ToLower())

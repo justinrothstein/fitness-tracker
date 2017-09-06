@@ -160,7 +160,10 @@ app.controller("nutritionHomeController", function ($scope, $http, $location, $w
     }
 
     function getTodaysFoods() {
-        var url = basePath + "Nutrition/GetTodaysFoods";
+        var date = new Date();
+        var formattedDate = moment(date).format('YYYYMMDD');
+
+        var url = basePath + "Nutrition/GetTodaysFoods?date=" + formattedDate;
 
         $http.get(url)
             .then(function (result) {
@@ -169,7 +172,10 @@ app.controller("nutritionHomeController", function ($scope, $http, $location, $w
     }
 
     function getTodaysNutrientTotals() {
-        var url = basePath + "Nutrition/GetTodaysNutrientTotals";
+        var date = new Date();
+        var formattedDate = moment(date).format('YYYYMMDD');
+
+        var url = basePath + "Nutrition/GetTodaysNutrientTotals?date=" + formattedDate;
 
         $http.get(url)
             .then(function (result) {
@@ -178,11 +184,15 @@ app.controller("nutritionHomeController", function ($scope, $http, $location, $w
     }
 
     function addFoodItem(foodItem) {
+        var date = new Date();
+        var formattedDate = moment(date).format('YYYYMMDD');
+
         var url = basePath + "Nutrition/AddFoodItem";
         var postParams = {
             foodItemDetails: foodItem,
             selectedServingSize: model.selectedServingSize,
-            servings: model.servings
+            servings: model.servings,
+            date: formattedDate
         };
 
         $http.post(url, postParams)
